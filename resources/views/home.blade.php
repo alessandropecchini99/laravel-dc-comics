@@ -7,6 +7,6 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-       <h1>Hello Word</h1>
+       <h1>Home Page</h1>
     </body>
 </html>
