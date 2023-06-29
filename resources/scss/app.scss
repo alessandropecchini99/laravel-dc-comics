@@ -2,6 +2,35 @@
 @import "~bootstrap/scss/bootstrap";
 
 // My Style
-h1 {
-    color: green;
+body {
+    background-color: #212529;
+    color: white;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    width: 80%;
+}
+
+.paginator {
+    .d-none {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.list-group {
+    border-radius: 20px;
+    width: 50%;
+    cursor: default;
+    text-align: center;
+
+    img {
+        width: 300px;
+    }
 }

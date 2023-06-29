@@ -11,4 +11,14 @@ class PageController extends Controller
     {
         return view('home');
     }
+
+    public function show()
+    {
+        return view('show');
+    }
+
+    public function create()
+    {
+        return view('create');
+    }
 }
