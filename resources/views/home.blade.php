@@ -3,7 +3,10 @@
 @section('title', 'Home')
 
 @section('main')
-    <h1>Home Page</h1>
 
-    <a class="btn btn-secondary" href="/comics">OUR COMICS</a>
+    <div class="home">
+        <h1>Home Page</h1>
+        <a class="btn btn-secondary" href="/comics">CHECK OUR COMICS!</a>
+    </div>
+    
 @endsection

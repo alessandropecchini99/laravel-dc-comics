@@ -3,6 +3,7 @@
 @section('title', 'Create')
 
 @section('main')
+
     <form class="create-form" method="POST" action="{{ route('comics.store') }}">
 
         <h1>Add a Comic!</h1>
@@ -43,4 +44,5 @@
         </div>
 
     </form>
+
 @endsection
