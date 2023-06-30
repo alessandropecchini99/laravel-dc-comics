@@ -1,0 +1,123 @@
+// importo classi comuni
+@use "../partials/variables.scss" as *;
+
+// SEZIONE DC POWER VISA
+header .visa {
+    background-color: #0c7cec;
+
+    div {
+        @include myContainer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2em;
+
+        font-size: 0.7em;
+        color: white;
+
+        // testo
+        span {
+            font-weight: 900;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            cursor: default;
+
+            // icon
+            .visa-icon {
+                font-size: 0.8em;
+                margin-left: 0.3em;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// SEZIONE NAVBAR
+header nav {
+    height: 110px;
+    background-color: white;
+    position: relative;
+    z-index: 90;
+
+    .nav-container {
+        @include myContainer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // logo
+    .nav-logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 85px;
+            border-radius: 90%;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    // navbar - link
+    .nav-list {
+        height: 100%;
+
+        ul {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            gap: 1.5em;
+            font-weight: 400;
+
+            li {
+                font-weight: 600;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    color: #0c7cec;
+                    border-bottom: 5px #0c7cec solid;
+                    cursor: pointer;
+                }
+
+                a {
+                    color: #303030;
+                    text-decoration: none;
+                    height: 100%;
+
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3em;
+
+                    span {
+                        height: 12px;
+                        color: #0c7cec;
+                        font-size: 0.6em;
+                    }
+                }
+            }
+        }
+    }
+
+    // search-bar
+    .search {
+        border-bottom: 2px #0c7cec solid;
+
+        input {
+            width: 80px;
+            text-align: right;
+            font-weight: 700;
+            border: 0px;
+            outline: none;
+        }
+
+        i {
+            cursor: pointer;
+        }
+    }
+}

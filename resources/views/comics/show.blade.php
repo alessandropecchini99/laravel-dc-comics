@@ -7,7 +7,7 @@
     <div class="show">
 
         <div class="info">
-            <ul class="list-group list-group-flush" style="margin-bottom: 2em;">
+            <ul class="list-group" style="margin-bottom: 2em;">
                 <li class="list-group-item"> <span>Title:</span> {{ $comic->title }}</li>
                 <li class="list-group-item"><span>Descriction:</span> {!! $comic->description !!}</li>
                 <li class="list-group-item"><span>Price:</span> {{ $comic->price }}</li>

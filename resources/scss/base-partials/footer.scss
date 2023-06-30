@@ -1,0 +1,131 @@
+// importo classi comuni
+@use "../partials/variables.scss" as *;
+
+// SEZIONE LINK E LOGO
+footer .footer-info {
+    background-image: url(/resources//img/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 420px;
+
+    .footer-info-container {
+        @include myContainer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+
+        // logo
+        img {
+            height: 580px;
+            z-index: 0;
+            position: absolute;
+            right: -10px;
+            top: -80px;
+        }
+
+        // colonne link
+        .colonne {
+            width: 100%;
+            display: flex;
+            color: grey;
+            font-weight: 300;
+
+            ul {
+                padding-left: 2em;
+                margin-right: 1em;
+                list-style-type: none;
+
+                li {
+                    margin-bottom: 0.3em;
+                    cursor: pointer;
+                    &:hover {
+                        color: white;
+                    }
+
+                    h2 {
+                        margin-bottom: 0.5em;
+                        color: white;
+                        font-size: 1.2em;
+                        font-weight: 600;
+                        cursor: default;
+                    }
+
+                    p {
+                        width: fit-content;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+
+            .colonna {
+                ul:first-of-type {
+                    padding-left: 0px;
+                    margin-bottom: 1.5em;
+                }
+
+                ul {
+                    padding-left: 0px;
+                }
+            }
+        }
+
+        // testo copyright
+        .footer-copyright {
+            width: 100%;
+            font-size: 0.9em;
+            font-weight: 100;
+            color: grey;
+            cursor: default;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+// SEZIONE SOCIAL & NEWSLETTER
+footer .footer-social {
+    height: 100px;
+    background-color: #303030;
+    position: relative;
+    z-index: 100;
+
+    .footer-social-container {
+        @include myContainer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // button newsletter
+        button {
+            background-color: #303030;
+            color: white;
+            padding: 10px;
+            border: 2px solid #0c7cec;
+            &:hover {
+                background-color: #003c80;
+                cursor: pointer;
+            }
+        }
+
+        // social icons
+        .icon {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            h2 {
+                color: #0c7cec;
+                margin-right: 0.5em;
+                cursor: pointer;
+            }
+
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+}

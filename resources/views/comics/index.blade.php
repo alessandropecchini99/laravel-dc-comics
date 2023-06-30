@@ -8,7 +8,7 @@
     
         <h1>OUR COMICS</h1>
 
-        <table class="table table-dark table-striped">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Title</th>

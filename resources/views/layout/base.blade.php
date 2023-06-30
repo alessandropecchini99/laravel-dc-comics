@@ -7,6 +7,15 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        @yield('main')
+        {{-- HEADER --}}
+        @include('layout.base-partials.header')
+
+        {{-- MAIN --}}
+        <main>
+            @yield('main')
+        </main>
+
+        {{-- FOOTER --}}
+        @include('layout.base-partials.footer')
     </body>
 </html>

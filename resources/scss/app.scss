@@ -1,30 +1,46 @@
-/*resources/scss/app.scss*/
+// import style
+@use "./base-partials/header.scss";
+@use "./base-partials/footer.scss";
+
+/* resources/scss/app.scss */
 @import "~bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 // My Style
-body {
-    background-color: #212529;
-    color: white;
-    height: 100vh;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0;
+}
+
+body {
+    height: 100vh;
+    overflow-y: auto;
 }
 
 // HOME
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
+    height: 500px;
+    background-image: url(/resources/img/jumbotron.jpg);
+    background-size: cover;
 }
 
 // INDEX
-.index {
-    width: 70%;
+main .index {
+    width: 80%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,18 +51,16 @@ body {
     }
 
     .paginator {
-        margin-top: 1.5em;
-
-        .d-none {
-            display: flex;
-            flex-direction: column-reverse;
-        }
+        width: 100%;
+        margin-top: 0.5em;
     }
 }
 
 // SHOW
-.show {
+main .show {
     width: 100%;
+    margin-top: 3em;
+    margin-bottom: 3em;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -74,12 +88,13 @@ body {
             width: 500px;
             border-radius: 10px;
             aspect-ratio: 1 / 1.5;
+            box-shadow: 0px 0px 30px black;
         }
     }
 }
 
 // CREATE
-.create-form {
+main .create-form {
     width: 40%;
 
     .create-button {
