@@ -6,6 +6,10 @@
 
     <div class="show">
 
+        <div class="thumb">
+            <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+        </div>
+
         <div class="info">
             <ul class="list-group" style="margin-bottom: 2em;">
                 <li class="list-group-item"> <span>Title:</span> {{ $comic->title }}</li>
@@ -17,10 +21,6 @@
             </ul>
 
             <a class="btn btn-secondary" href="/comics">Back</a>
-        </div>
-
-        <div class="thumb">
-            <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
         </div>
 
     </div>

@@ -4,6 +4,7 @@
 // SEZIONE DC POWER VISA
 header .visa {
     background-color: #0c7cec;
+    height: 2vh;
 
     div {
         @include myContainer;
@@ -34,7 +35,7 @@ header .visa {
 
 // SEZIONE NAVBAR
 header nav {
-    height: 110px;
+    height: 10vh;
     background-color: white;
     position: relative;
     z-index: 90;

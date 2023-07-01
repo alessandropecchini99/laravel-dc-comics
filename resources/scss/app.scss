@@ -24,30 +24,49 @@ h6 {
 }
 
 body {
-    height: 100vh;
     overflow-y: auto;
 }
 
 // HOME
 .home {
-    height: 500px;
+    height: 78vh;
     background-image: url(/resources/img/jumbotron.jpg);
     background-size: cover;
+
+    display: grid;
+    place-items: center;
+    cursor: default;
+
+    .welcome {
+        background-color: #0c7cec;
+        color: white;
+
+        width: fit-content;
+        padding: 20px 50px;
+        border-radius: 20px;
+        font-size: 4em;
+        font-weight: 800;
+    }
 }
 
 // INDEX
 main .index {
     width: 80%;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    height: 78vh;
     margin-inline: auto;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: default;
 
-    h1 {
-        margin-bottom: 1em;
+    button {
+        cursor: pointer;
+    }
+
+    .table {
+        margin-top: 1.5em;
     }
 
     .paginator {
@@ -59,8 +78,7 @@ main .index {
 // SHOW
 main .show {
     width: 100%;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    height: 88vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -86,7 +104,7 @@ main .show {
     .thumb {
         img {
             width: 500px;
-            border-radius: 10px;
+            border-radius: 5px;
             aspect-ratio: 1 / 1.5;
             box-shadow: 0px 0px 30px black;
         }
@@ -103,5 +121,26 @@ main .create-form {
         a {
             margin-right: 0.5em;
         }
+    }
+}
+
+// ERROR 404
+main .error404 {
+    height: 78vh;
+    background-image: url(/resources/img/jumbotron.jpg);
+    background-size: cover;
+
+    display: grid;
+    place-items: center;
+
+    .errorText {
+        background-color: #0c7cec;
+        color: white;
+
+        width: fit-content;
+        padding: 20px 50px;
+        border-radius: 20px;
+        font-size: 4em;
+        font-weight: 800;
     }
 }
