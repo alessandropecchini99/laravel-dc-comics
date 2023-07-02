@@ -37,7 +37,30 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validazione dei dati
+        $request->validate([
+            'title'         => 'required|string|max:50',
+            'description'   => 'string',
+            'price'         => 'required|string|max:7',
+            'series'        => 'required|string|max:50',
+            'sale'          => 'date',
+            'type'          => 'required|string|max:20',
+        ]);
+
+        $data = $request->all();
+
+        // Salvare i dati nel database
+        $newComic = new Comic();
+        $newComic->title        = $data['title'];
+        $newComic->description  = $data['description'];
+        $newComic->thumb        = 'https://picsum.photos/200';
+        $newComic->price        = '$' . ($data['price'] / 100);
+        $newComic->series       = $data['series'];
+        $newComic->sale_date    = $data['sale'];
+        $newComic->type         = $data['type'];
+        $newComic->save();
+
+        return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
 
     /**

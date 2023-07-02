@@ -6,6 +6,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
+// variables
+$all-page: 78vh;
+$whit-navbar: 88vh;
+
 // My Style
 * {
     padding: 0;
@@ -29,7 +33,7 @@ body {
 
 // HOME
 .home {
-    height: 78vh;
+    height: $all-page;
     background-image: url(/resources/img/jumbotron.jpg);
     background-size: cover;
 
@@ -52,7 +56,7 @@ body {
 // INDEX
 main .index {
     width: 80%;
-    height: 78vh;
+    height: $all-page;
     margin-inline: auto;
 
     display: flex;
@@ -77,11 +81,13 @@ main .index {
 
 // SHOW
 main .show {
-    width: 100%;
-    height: 88vh;
+    height: $whit-navbar;
+    width: 80%;
+
+    margin-inline: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
     .info {
         display: flex;
@@ -102,6 +108,7 @@ main .show {
     }
 
     .thumb {
+        width: 100%;
         img {
             width: 500px;
             border-radius: 5px;
@@ -112,21 +119,39 @@ main .show {
 }
 
 // CREATE
-main .create-form {
-    width: 40%;
+main .create {
+    min-height: $all-page;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .create-button {
-        padding-top: 1em;
+    h1 {
+        margin-bottom: 0.5em;
+    }
 
-        a {
-            margin-right: 0.5em;
+    .create-form {
+        width: 40%;
+        margin-bottom: 1em;
+
+        .create-button {
+            padding-top: 1em;
+
+            a,
+            button {
+                margin-right: 0.5em;
+            }
         }
     }
 }
 
+/*
+*   EXTRAS
+*/
+
 // ERROR 404
 main .error404 {
-    height: 78vh;
+    height: $all-page;
     background-image: url(/resources/img/jumbotron.jpg);
     background-size: cover;
 
