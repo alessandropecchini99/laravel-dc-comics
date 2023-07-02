@@ -44,7 +44,7 @@
         <a class="btn btn-primary" href="{{ route('comics.create') }}">Add new Comic</a>
 
         <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="color: black;">
+        <div class="modal fade w-100" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="color: black;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
