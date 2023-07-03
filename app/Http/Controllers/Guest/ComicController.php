@@ -16,7 +16,12 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::paginate(5); // SELECT * FROM 'Comics
-        return view('comics.index', compact('comics'));
+
+        // return view('comics.index', compact('comics'));
+        // OR
+        return view('comics.index', [
+            'comics' => $comics,
+        ]);
     }
 
     /**
@@ -41,7 +46,7 @@ class ComicController extends Controller
         $request->validate([
             'title'         => 'required|string|max:50',
             'description'   => 'string',
-            'price'         => 'required|string|max:7',
+            'price'         => 'required|max:10',
             'series'        => 'required|string|max:50',
             'sale'          => 'date',
             'type'          => 'required|string|max:20',
@@ -54,12 +59,14 @@ class ComicController extends Controller
         $newComic->title        = $data['title'];
         $newComic->description  = $data['description'];
         $newComic->thumb        = 'https://picsum.photos/200';
-        $newComic->price        = '$' . ($data['price'] / 100);
+        $newComic->price        = $data['price'];
         $newComic->series       = $data['series'];
         $newComic->sale_date    = $data['sale'];
         $newComic->type         = $data['type'];
         $newComic->save();
 
+        // return to_route('comics.show', ['comic' => $NewComic->id]);
+        // OR
         return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
 
@@ -82,7 +89,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -94,7 +101,34 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        // Validare i dati
+        $request->validate([
+            'title'         => 'required|string|max:50',
+            'description'   => 'string',
+            'thumb'         => 'required|string',
+            'price'         => 'required|max:10',
+            'series'        => 'required|string|max:50',
+            'sale'          => 'date',
+            'type'          => 'required|string|max:20',
+        ]);
+
+        $data = $request->all();
+
+        // Aggiornare i dati
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->sale_date = $data['sale'];
+        $comic->type = $data['type'];
+
+        $comic->update();
+
+
+        // return redirect()->route('comics.show', ['comic' => $newComic->id]);
+        // OR
+        return to_route('comics.show', ['comic' => $comic->id]);
     }
 
     /**
