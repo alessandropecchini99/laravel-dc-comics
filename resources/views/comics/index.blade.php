@@ -8,6 +8,28 @@
     
         <h1>OUR COMICS</h1>
 
+            @if (session('delete_success'))
+                @php $comic = session('delete_success') @endphp
+                <div class="alert alert-danger m-0">
+                    "{{ $comic->title }}" Deleted
+                    <form
+                        action="{{ route("comics.restore", ['comic' => $comic]) }}"
+                        method="post"
+                        class="d-inline-block restore-btn"
+                    >
+                        @csrf
+                        <button class="btn btn-warning">Restore</button>
+                    </form>
+                </div>
+            @endif
+
+            @if (session('restore_success'))
+                @php $comic = session('restore_success') @endphp
+                <div class="alert alert-success">
+                    "{{ $comic->title }}" Restored
+                </div>
+            @endif
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -28,7 +50,15 @@
                         <td>
                             <a class="btn btn-primary" href="{{ route('comics.show', ['comic' => $comic->id]) }}">View</a>
                             <a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit</a>
-                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger">Delete</a>
+                            <form
+                                action="{{ route('comics.destroy', ['comic' => $comic->id]) }}"
+                                method="post"
+                                class="d-inline-block"
+                            >
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -40,25 +70,16 @@
             {{ $comics->links() }}
         </div>
 
-        {{-- Add New Comic --}}
-        <a class="btn btn-primary" href="{{ route('comics.create') }}">Add new Comic</a>
+        {{-- other buttons --}}
+        <div>
+            {{-- Add New Comic --}}
+            <a class="btn btn-primary" href="{{ route('comics.create') }}">Add new Comic</a>
 
-        <!-- Delete Modal -->
-        <div class="modal fade w-100" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="color: black;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure?</h1>
-                    </div>
-                    <div class="modal-body">
-                        You can't go back!
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-            </div>
+            {{-- Trash Can --}}
+            <a class="btn btn-warning" href="{{ route('comics.trashed') }}">
+                Trash Can
+                <i class="bi bi-trash3"></i>
+            </a>
         </div>
 
     </div>

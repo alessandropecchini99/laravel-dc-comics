@@ -3,7 +3,11 @@
 
   <div class="footer-social-container">
 
-    <button><h2>SIGN-UP NOW!</h2></button>
+    <button>
+      
+        <a href="/"><h2>SIGN-UP NOW!</h2></a>
+      
+    </button>
 
       <div class="icon">
         <h2>FOLLOW US</h2>
