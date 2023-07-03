@@ -23,11 +23,11 @@
                     <tr>
                         <th scope="row">{{ $comic->title }}</th>
                         <td>{{ $comic->series }}</td>
-                        <td>{{ $comic->price }}</td>
+                        <td>{{ '$' . ($comic->price / 100) }}</td>
                         <td>{{ $comic->sale_date }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('comics.show', ['comic' => $comic->id]) }}">View</a>
-                            <a class="btn btn-warning" href="">Edit</a>
+                            <a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit</a>
                             <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
