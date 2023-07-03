@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
+    // Variables
+    private $validations = [
+        'title'         => 'required|string|max:50',
+        'description'   => 'string',
+        'price'         => 'required|max:10',
+        'series'        => 'required|string|max:50',
+        'sale'          => 'date',
+        'type'          => 'required|string|max:20',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -43,14 +53,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         // Validazione dei dati
-        $request->validate([
-            'title'         => 'required|string|max:50',
-            'description'   => 'string',
-            'price'         => 'required|max:10',
-            'series'        => 'required|string|max:50',
-            'sale'          => 'date',
-            'type'          => 'required|string|max:20',
-        ]);
+        $request->validate($this->validations);
 
         $data = $request->all();
 
@@ -139,6 +142,37 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete(); // se settiamo in model e in migrate il softdelete, cambia in automatico
+        return to_route('comics.index')->with('delete_success', $comic);
+    }
+
+    public function restore($id)
+    {
+        Comic::withTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        $comic = Comic::find($id);
+
+        return to_route('comics.index')->with('restore_success', $comic);
+    }
+
+    public function trashed()
+    {
+        $trashedComics = Comic::onlyTrashed()->paginate(5); // SELECT * FROM 'Comics
+
+        return view('comics.trashed', compact('trashedComics'));
+        // OR
+        // return view('comics.trashed', [
+        //     'comics' => $trashedComics,
+        // ]);
+    }
+
+    public function harddelete($id)
+    {
+        $comic = Comic::withTrashed()->find($id);
+        $comic->forceDelete();
+
+        return to_route('comics.trashed')->with('delete_success', $comic);
     }
 }

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->date('sale_date')->nullable();
             $table->string('type', 20);
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }
