@@ -65,6 +65,14 @@ main .index {
     justify-content: center;
     cursor: default;
 
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    .restore-btn {
+        margin-left: 0.5em;
+    }
+
     button {
         cursor: pointer;
     }
@@ -82,12 +90,13 @@ main .index {
 // SHOW
 main .show {
     height: $whit-navbar;
-    width: 80%;
+    width: 60%;
 
     margin-inline: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5em;
 
     .info {
         display: flex;

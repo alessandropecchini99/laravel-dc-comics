@@ -15,9 +15,14 @@ footer {
         // button newsletter
         button {
             background-color: #303030;
-            color: white;
             padding: 10px;
             border: 2px solid #0c7cec;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+
             &:hover {
                 background-color: #003c80;
                 cursor: pointer;
