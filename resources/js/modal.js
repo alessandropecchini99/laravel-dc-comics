@@ -1,21 +1,20 @@
 // Var
 const myModal = document.querySelectorAll(".myModal");
-const myForm = document.getElementById("myForm");
-const oldAction = myForm.action;
 
-// Event
-myModal.forEach((button) => {
-    button.addEventListener("click", function () {
-        myForm.action = oldAction;
+if (myModal.length != 0) {
+    const myForm = document.getElementById("myForm");
+    const oldAction = myForm.action;
 
-        console.log(oldAction);
+    // Event
+    myModal.forEach((button) => {
+        button.addEventListener("click", function () {
+            myForm.action = oldAction;
 
-        const id = button.getAttribute("data-id");
+            const id = button.getAttribute("data-id");
 
-        console.log(id);
+            const newAction = myForm.action.replace("***", id);
 
-        const newAction = myForm.action.replace("***", id);
-
-        myForm.action = newAction;
+            myForm.action = newAction;
+        });
     });
-});
+}
