@@ -32,6 +32,7 @@
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Series</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Price</th>
                         <th scope="col">Sale Date</th>
                         <th scope="col">Actions</th>
@@ -42,6 +43,7 @@
                         <tr>
                             <th scope="row">{{ $comic->title }}</th>
                             <td>{{ $comic->series }}</td>
+                            <td>{{ $comic->id }}</td>
                             <td>{{ '$' . ($comic->price / 100) }}</td>                            
                             <td>{{ $comic->sale_date }}</td>
                             <td>
@@ -55,7 +57,7 @@
                                 </form>
 
                                 <!-- Button trigger modal -->
-                                <button id="myModal" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myInput">
+                                <button type="button" class="btn btn-danger myModal" data-bs-toggle="modal" data-bs-target="#myInput" data-id="{{ $comic->id }}">
                                     <i class="bi bi-trash3"></i>
                                 </button>
                             </td>
@@ -78,7 +80,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myInput">Are you sure?</h5>
+                        <h5 class="modal-title">Are you sure?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -88,9 +90,11 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
 
                         <form
-                            action="{{ route("comics.harddelete", ['comic' => $trashedComics]) }}"
+                            action="{{ route("comics.harddelete", ['comic' => '***']) }}"
+                            {{-- action="http://localhost:8000/admin/comics/0/harddelete" --}}
                             method="post"
                             class="d-inline-block"
+                            id="myForm"
                         >
                             @csrf
                             @method('delete')
